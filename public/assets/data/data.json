@@ -1,0 +1,72 @@
+[
+    {
+        "id":"5", 
+        "nombre":"Gorra de béisbol de dibujos animados",
+        "descripcion":"Gorra de béisbol de dibujos animados para hombres y mujeres, sombrero de malla de Hip Hop Dad Gorra de camionero",
+        "category":"gorras", 
+        "precio":"2000", 
+        "imagen":"710RWjxCF8L._AC_UL1500_.jpg"
+    },
+    {
+        "id":"1", 
+        "nombre":"Sombreros Newsboy para hombre", 
+        "descripcion":"Sombreros Newsboy para hombre, gorra plana, de algodón, ajustables y transpirables, para taxista irlandés, hiedra, conducir Gatsby", 
+        "category":"gorras", 
+        "precio":"1250", 
+        "imagen":"41KCwyKYUpL.jpg"
+    },
+    {
+        "id":"2", 
+        "nombre":"VOBOOM Boina de algodón ajustable para hombre",
+        "descripcion":"VOBOOM Boina de algodón ajustable para hombre, gorra de hiedra, gorra plana de taxista",
+        "category":"gorras",
+        "precio":"1250",
+        "imagen":"61AxNTXcP5L.jpg"
+    },
+    {
+        "id":"3", 
+        "nombre":"Gorra Gudessly de piel auténtica", 
+        "descripcion":"Gorra Gudessly de piel auténtica ajustable de piel de vacuno para hombre, periodista, boina de taxista, sombrero para conducir, cazar y pescar", 
+        "category":"gorras", 
+        "precio":"2000", 
+        "imagen":"71Hbjsj2aoL.jpg"
+    },
+    
+    {
+        "id":"6", 
+        "nombre":"Camiseta de Peñarol",
+        "descripcion":"Camiseta oficial de Peñarol",
+        "category":"remeras",
+        "precio":"2000",
+        "imagen":"remeraPenarol.jpg",
+        "colores" : [
+            { "id":"Oficial", "imagen":"remeraPenarol.jpg" },
+            { "id":"Negro", "imagen":"remeraPenarolNegra.jpg" },
+            { "id":"Amarilla", "imagen":"remeraPenarol2.jpg" }
+        ]
+    },
+    {
+        "id":"7", 
+        "nombre":"Remera de Uruguay",
+        "descripcion":"Remera de Uruguay",
+        "category":"remeras",
+        "precio":"2000",
+        "imagen":"remeraUruguayBlanca.png",
+        "colores" : [
+            { "id":"Blanca", "imagen":"remeraUruguayBlanca.png" },
+            { "id":"Negra", "imagen":"remeraUruguayNegra.png" }
+        ]
+    },
+    {
+        "id":"8", 
+        "nombre":"Remera de fútbol de Uruguay",
+        "descripcion":"Camiseta de Uruguay",
+        "category":"remeras",
+        "precio":"2000",
+        "imagen":"remeraCeleste.jpg",
+        "colores" : [
+            { "id":"Celeste", "imagen":"remeraCeleste.jpg" },
+            { "id":"Blanca", "imagen":"remeraBlanca.jpg" }
+        ]
+    }
+]

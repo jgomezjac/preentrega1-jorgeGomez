@@ -14,7 +14,7 @@ export const ItemDetailContainer = () => {
         .then( resultado => setProduct( resultado.find(product=>product.id==pid) ) )
         .catch( error => console.log(error))
         .finally(() => setLoading(false))
-    })
+    },[])
     
     return (
         <>

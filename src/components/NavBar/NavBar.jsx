@@ -26,7 +26,7 @@ export const NavBar = () => {
                     <NavLink className="nav-link" to='/'>Inicio</NavLink>
                     <NavDropdown title="Categorias" id="basic-nav-dropdown">
                     <NavLink onClick={handleCollapse} className='dropdown-item' to='/category/gorras'>Gorras</NavLink>
-                    <NavLink onClick={handleCollapse} className='dropdown-item' to='/category/camisas'>Camisas</NavLink>
+                    <NavLink onClick={handleCollapse} className='dropdown-item' to='/category/remeras'>Remeras</NavLink>
                     <NavDropdown.Divider />
                     <NavLink onClick={handleCollapse} className='dropdown-item' to='/'>Todas</NavLink>
                     </NavDropdown>
