@@ -11,8 +11,9 @@
     "react-router-dom": "^6.17.0"
   },
 
-Nombre del Proyecto : Carrito de Compras
-Demo : 
+#Nombre del Proyecto : Carrito de Compras
+#Autor : Jorge Gómez
+##Demo : 
 
   | Plugin | Verion | Descripción |
   | ------ | ------ | ----------- |
@@ -20,4 +21,4 @@ Demo :
   | firebase | 10.6.0 | Base de datos en la nube Firebase |
   | react-Boostrap | 2.9.0 | Componentes para la utilizacion de bootstrap |
   | fontawesome | 6.4.2 | Libreria de iconos |
-  | react-router-dom | Ruteador de paginas de react |
+  | react-router-dom | 6.17.0 | Ruteador de paginas de react |
