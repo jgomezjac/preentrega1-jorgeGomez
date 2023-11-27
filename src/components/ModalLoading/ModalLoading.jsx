@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -22,7 +21,6 @@ function ModalLoading( props ) {
         </Modal.Body>
 
       </Modal>
-      
     )
 }
 export default ModalLoading;   

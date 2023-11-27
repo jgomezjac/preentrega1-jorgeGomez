@@ -7,12 +7,16 @@ import { Link, NavLink } from 'react-router-dom';
 
 export const NavBar = () => {
 
+    const categories = [
+        {id:1, name:'Gorras', path:'/category/gorras'},
+        {id:2, name:'Remeras', path:'/category/remeras'},
+        {id:3, name:'Todas', path:'/'}
+    ]
+
     const handleCollapse=() => {
         console.log("handleCollapse");
         var nav = document.getElementById("basic-navbar-nav");
-        //var btn = document.getElementById("navbarBtn");
         nav.click();
-        //btn.classList.add("collapsed");
     }
 
     return (
@@ -25,10 +29,7 @@ export const NavBar = () => {
                 <Nav className="me-auto">
                     <NavLink className="nav-link" to='/'>Inicio</NavLink>
                     <NavDropdown title="Categorias" id="basic-nav-dropdown">
-                    <NavLink onClick={handleCollapse} className='dropdown-item' to='/category/gorras'>Gorras</NavLink>
-                    <NavLink onClick={handleCollapse} className='dropdown-item' to='/category/remeras'>Remeras</NavLink>
-                    <NavDropdown.Divider />
-                    <NavLink onClick={handleCollapse} className='dropdown-item' to='/'>Todas</NavLink>
+                    {categories.map(category => <NavLink key={category.id} onClick={handleCollapse} className='dropdown-item' to={`${category.path}`}>{category.name}</NavLink> )}
                     </NavDropdown>
                 </Nav>
 

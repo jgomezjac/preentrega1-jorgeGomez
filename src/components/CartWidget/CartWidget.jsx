@@ -6,9 +6,13 @@ import Badge from 'react-bootstrap/Badge';
 
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
+import { UseCartContext } from '../../contexts/CartContext/CartContext';
 
 const CartWidget = () => {
-    const cantidadArticulos = 5;
+
+    const {productsCart} = UseCartContext()
+    const cantidadArticulos = productsCart.length;
+
     const [show, setShow] = useState(false);
     const handleNotificacion = () => {
         setShow(!show);

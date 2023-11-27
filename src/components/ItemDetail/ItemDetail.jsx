@@ -4,11 +4,15 @@ import Col from 'react-bootstrap/Col';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SelectColor } from '../SelectColor/SelectColor';
+import { UseCartContext } from '../../contexts/CartContext/CartContext';
 export const ItemDetail = ( {product}) => {
 
     const [cantidad,setCantidad] = useState(0);
     const [add,setAdd] = useState(false)
     const [colorSeleccionado,setColorSeleccionado]= useState('defecto');
+
+    const {addProductCart} = UseCartContext()
+    
 
     const handleAgregar=() => {
         setCantidad(cantidad+1);
@@ -16,36 +20,44 @@ export const ItemDetail = ( {product}) => {
     const handleColorSeleccionado=( colorSeleccionado ) => {
         setColorSeleccionado( colorSeleccionado );
     }
-
     const handleQuitar=() => {
         if( cantidad > 1) {
             setCantidad(cantidad-1);
         }
     }
+
     const mostrarCantidad=() => {
         setAdd( true )
-        console.log(`Cantidad seleccionada : ${cantidad}`);
+        addProductCart({...product, cantidad});
+    }
+
+    const coloresJson= [];
+    if( product.colors ) {
+        for( let ncolor=0; ncolor< product.colors.length; ncolor++) {
+            let arrDataColor = product.colors[ncolor].split("|");
+            coloresJson.push( {'id':arrDataColor[0], 'image':arrDataColor[1]}) 
+        }
     }
 
     return (
         <Container className='mt-2'>
             <Row>
                 <Col>
-                    { colorSeleccionado=='defecto' ? <img className='img-fluid' src={`/assets/products/${product.imagen}`} /> 
-                    : <img className='img-fluid' src={`/assets/products/${ product.colores.find( color=> color.id==colorSeleccionado).imagen }`} /> }
+                    { colorSeleccionado=='defecto' ? <img className='img-fluid' src={`/assets/products/${product.image}`} /> 
+                    : <img className='img-fluid' src={`/assets/products/${ coloresJson.find( color=> color.id==colorSeleccionado).image }`} /> }
                 </Col>
                 <Col className='mt-5'>
                     <label><b>Nombre : </b></label>
-                    <p>{product.nombre}</p>
+                    <p>{product.name}</p>
 
                     <label><b>Descripcion : </b></label>
-                    <p>{product.descripcion}</p>
+                    <p>{product.description}</p>
 
                     <label><b>Precio : </b></label>
-                    <p>{product.precio}</p>
+                    <p>{product.price}</p>
 
                     <label><b>Color : </b></label>
-                    { product.colores ? <p><SelectColor optionSelected={handleColorSeleccionado} colores={product.colores}/></p> : <><p>Unico color</p></> }
+                    { product.colors ? <p><SelectColor optionSelected={handleColorSeleccionado} colores={coloresJson}/></p> : <><p>Unico color</p></> }
 
                     <label><b>Cantidad seleccionada : </b></label>
                     <p>{cantidad}</p>
