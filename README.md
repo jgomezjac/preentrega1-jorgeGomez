@@ -2,6 +2,11 @@
 ## Autor : Jorge Gómez
 ## Demo : 
 
+Proyecto final para el curso React de Coderhouse.
+El Objetivo del proyecto es tener un carrito de compras
+
+## Plugins utilizados : 
+
   | Plugin | Verison | Descripción |
   | ------ | ------ | ----------- |
   | bootstrap | 5.3.2 | Frame de estilado |
@@ -12,4 +17,3 @@
 
   ## Credenciales para base de datos Firebase
   src/firebase/config.js
-
