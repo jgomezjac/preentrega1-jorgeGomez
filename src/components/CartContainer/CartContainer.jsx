@@ -31,6 +31,11 @@ export const CartContainer = () => {
         .catch( err => console.log(err))
     }
 
+    const miVaciarCarrito=() => {
+        let conf=confirm('Esta seguro/a?');
+        if (conf) vaciarCarrito();
+    }
+
     return <>    
         <Container className='mt-2'>
             {idCompra ? <>
@@ -38,38 +43,46 @@ export const CartContainer = () => {
                     <Link className='btn btn-success' to='/'>Volver</Link>
                 </> :
                 <>
-                <Row>
-                    <Col><h1>Contenido del carrito</h1></Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <table className='table table-striped table-bordered'>
-                            <thead className='table-dark'>
-                                <tr>
-                                    <th>Producto</th>
-                                    <th>Descripción</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad</th>
-                                    <th>Subtotal</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            {productsCart.map( product => <CartItem key={product.id} product={product}></CartItem>)}
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th colSpan='4'></th>
-                                    <th className="text-end">$ {totalPrice()}</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <button className="btn btn-danger" onClick={vaciarCarrito}>Vaciar Carrito</button>
-                    </Col>
-                    <Col className='col-sm-4'>
-                        <FormContainer handleOrder={handleOrder}/>
-                    </Col>
-                </Row>
+                    {productsCart.length ? 
+                    <>
+                    <Row>
+                        <Col><h1>Contenido del carrito</h1></Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <table className='table table-striped table-bordered'>
+                                <thead className='table-dark'>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Descripción</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th>Subtotal</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {productsCart.map( product => <CartItem key={product.id} product={product}></CartItem>)}
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colSpan='4'></th>
+                                        <th className="text-end">$ {totalPrice()}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <button className="btn btn-danger" onClick={miVaciarCarrito}>Vaciar Carrito</button>
+                        </Col>
+                            <Col className='col-sm-4'>
+                                <FormContainer handleOrder={handleOrder}/>
+                            </Col>
+                    </Row>
+                    </>
+                : <>
+                        <h2>No tiene articulos en el carrito </h2>
+                        <Link className='btn btn-success' to='/'>Volver</Link>
+                    </>
+                }
                 </>
             }
         </Container>

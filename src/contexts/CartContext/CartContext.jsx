@@ -15,9 +15,9 @@ export const CartContextProvider = ({children}) => {
         ])
     }
     const vaciarCarrito = () => {
-        let conf= confirm("Esta seguro/a?")
-        if(conf) setProductsCart([]);
+        setProductsCart([]);
     }
+    
     const deleteProduct = ( product2Del ) => {
         const newProductsCart = [];
         for( let n=0; n< productsCart.length; n++) {
