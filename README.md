@@ -1,6 +1,6 @@
 # Nombre del Proyecto : Carrito de Compras
 ## Autor : Jorge Gómez
-## Demo : 
+## Demo : https://relaxed-queijadas-2e86dd.netlify.app/
 
 Proyecto final para el curso React de Coderhouse.
 El Objetivo del proyecto es tener un carrito de compras
