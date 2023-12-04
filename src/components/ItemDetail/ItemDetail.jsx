@@ -7,7 +7,7 @@ import { SelectColor } from '../SelectColor/SelectColor';
 import { UseCartContext } from '../../contexts/CartContext/CartContext';
 export const ItemDetail = ( {product}) => {
 
-    const [cantidad,setCantidad] = useState(0);
+    const [cantidad,setCantidad] = useState(1);
     const [add,setAdd] = useState(false)
     const [colorSeleccionado,setColorSeleccionado]= useState('defecto');
 
@@ -27,6 +27,10 @@ export const ItemDetail = ( {product}) => {
     }
 
     const mostrarCantidad=() => {
+        if(cantidad<1) {
+            alert('Debe seleccionar una cantidad para agregar');
+            return false;
+        }
         setAdd( true )
         addProductCart({...product, cantidad});
     }

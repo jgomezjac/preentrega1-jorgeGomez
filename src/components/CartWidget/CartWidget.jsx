@@ -6,8 +6,8 @@ import { UseCartContext } from '../../contexts/CartContext/CartContext';
 
 const CartWidget = () => {
 
-    const {productsCart} = UseCartContext()
-    const cantidadArticulos = productsCart.length;
+    const {retornarCantidadArticulos} = UseCartContext()
+    const cantidadArticulos =  retornarCantidadArticulos();
     return (
         <>
         <Button  variant="secondary">

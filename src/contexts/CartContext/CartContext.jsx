@@ -5,14 +5,18 @@ export const UseCartContext = () => useContext( CartContext );
 export const CartContextProvider = ({children}) => {
 
     const [productsCart,setProductsCart]=useState([])
+    const [flgRender,setFlgRender]=useState(false)
+
     const addProductCart = ( product ) => {
-        let newProductsCart = [];
-        for( let n=0; n< productsCart.length; n++) {
-            if( productsCart[n].id!=product.id ) newProductsCart.push( productsCart[n] );
+        let productoExistente= productsCart.find((productIn)=> productIn.id == product.id );
+        if( productoExistente ) {
+            productoExistente.cantidad += product.cantidad;
+            (flgRender)?setFlgRender( false ):setFlgRender( true );
+        } else {
+            setProductsCart([
+                ...productsCart,product
+            ])
         }
-        setProductsCart([
-            ...newProductsCart,product
-        ])
     }
     const vaciarCarrito = () => {
         setProductsCart([]);
@@ -28,8 +32,9 @@ export const CartContextProvider = ({children}) => {
     }
 
     const totalPrice = () => productsCart.reduce( (total,product) => total=total+(product.price*product.cantidad), 0 );
+    const retornarCantidadArticulos = () =>  productsCart.reduce( (cantidad,product) => cantidad+=product.cantidad, 0 );
     return (
-        <CartContext.Provider value={{productsCart, addProductCart, vaciarCarrito, totalPrice, deleteProduct}}>
+        <CartContext.Provider value={{productsCart, addProductCart, vaciarCarrito, totalPrice, deleteProduct, retornarCantidadArticulos}}>
             {children}
         </CartContext.Provider>
     )
